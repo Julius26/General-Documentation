@@ -3,3 +3,9 @@ How to enable swap in linux
 Enabling swap :[code language=’cpp’]/sbin/swapon -a[/code]
 
 Disabling swap :[code language=’cpp’]/sbin/swapoff -a[/code]
+
+IGNORING GIT FILES
+git update-index --assume-unchanged "main/dontcheckmein.txt"
+
+Reversing the above
+git update-index --no-assume-unchanged "main/dontcheckmein.txt"
