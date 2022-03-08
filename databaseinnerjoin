@@ -1,0 +1,3 @@
+SELECT registration.id, registration.first_name
+FROM registration
+INNER JOIN uploadtasks ON registration.taskid=uploadtasks.id WHERE registration.status = 'Assigned Tasks' AND registration.id=20;
