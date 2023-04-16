@@ -1,0 +1,2 @@
+When setting up emails- you have to add the dmarc record to avoid unauthorised sending emails on your behalf.
+an example of txt dmarc record :  v=spf1 ip4:91.148.168.81 +a +mx ~all 
