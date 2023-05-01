@@ -1,1 +1,3 @@
 adminer - for connecting wordpress db
+
+importing .sql file directly command : mysql -u rc5 -p vooca < /home/rc5/Desktop/Voocar.sql
