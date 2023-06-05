@@ -1,2 +1,82 @@
 When setting up emails- you have to add the dmarc record to avoid unauthorised sending emails on your behalf.
 an example of txt dmarc record :  v=spf1 ip4:91.148.168.81 +a +mx ~all 
+
+
+         "No DMARC Record found"
+        And/ OR
+        "DMARC Quarantine/Reject policy not enabled"
+
+        Fix:
+        1) Publish DMARC Record.  (If not already Published)
+        2)Enable DMARC Quarantine/Reject policy
+        3)Your DMARC record should look like
+        "v=DMARC1; p=reject; sp=none; pct=100; ri=86400; rua=mailto:info@domain.com"
+
+        And
+
+        As I have seen the SPF and TXT record for the  fourtechglobalsolutions.com  which is :
+
+
+        Found v=spf1 record for fourtechglobalsolutions.com:
+        v=spf1 include:_spf.google.com ~all    
+
+
+        so valid record will look like :
+
+
+        Found v=spf1 record for fourtechglobalsolutions.com:
+
+        v=spf1 include:_spf.google.com -all 
+
+         
+
+        What's the issue :
+
+        What's the issue: as u can see in the article difference between softfail and hardfail you should be using fail as Hardfail as it doesn't allow anyone to send spoofed emails from your domains, In current SPF record you should replace (?) or
+
+        (~) with (-) at last before all , - is strict which prevents all spoofed emails except if you are sending
+
+        You can validate by testing yourself over here: mxtoolbox.com
+
+        This is useful in phishing, and this type of vulnerability is newsworthy (http://bits.blogs.nytimes.com/2015/04/09/sendgrid-email-breach-was-used-to-attack-coinbase-a-bitcoin-exchange/
+
+        https://medium.com/@hotbit/official-statement-notices-of-counterfeit-email-listing-hotbit-io-d1d240005d35
+
+        This can be done using any php mailer tool like this ,
+
+        <?php
+        $to = "VICTIM@example.com";
+        $subject = "Password Change";
+        $txt = "Change your password by visiting here - [VIRUS LINK HERE]l";
+        $headers = "From:  info@fourtechglobalsolutions.com";
+        mail($to,$subject,$txt,$headers);
+        ?>
+
+        IMPACT:
+        Due to this vulnerability, any hacker can send a forged email to your customers using your domain .Thus, getting sensitive information of your customers like login details, downloading a virus/malware etc.
+
+        Also When an attacker sends an email to your customers asking them to change their password. The customer, after seeing the mail, might consider the mail as legit and falls for the trap.
+
+        In doing this the attacker can take them to his website where certain JavaScript is executed which steals the customer's session id and password.
+
+        The results can be more dangerous and impactful. 
+
+        A study shows why DMARC and SPF are crucial:
+
+         1) $1.6 million on average is what one single spear phishing attack costs for organizations
+         2) $500 million every year is scammed by phishing attacks
+         3) Just 3% of all users will report phishing emails to their management
+         4) More than 400 businesses are targeted by BEC scams every day
+         5) 76% of organizations have reported that they have been victim of a phishing attack.
+         6) 1 in 3 companies have been victims of CEO fraud emails
+         7) 70% of all global emails is malicious
+         8) Fake invoice messages are the #1 type of phishing lure
+
+        You can find the SPF fix over here : https://www.digitalocean.com/community/tutorials/how-to-use-an-spf-record-to-prevent-spoofing-improve-e-mail-reliability
+
+
+        For DMARC record :   https://easydmarc.com/blog/how-to-fix-no-dmarc-record-found/
+
+        and DMARC policy here:  https://support.rackspace.com/how-to/create-a-dmarc-policy/
+
+        Let me know if you need me to send a forged email.
