@@ -13,6 +13,9 @@ v=DMARC1; p=quarantine; fo=1; rua=mailto:admin@saldomatours.com
         3)Your DMARC record should look like
         "v=DMARC1; p=reject; sp=none; pct=100; ri=86400; rua=mailto:info@domain.com"
 
+won't send dmarc reports
+         v=DMARC1; p=quarantine; rf=afrf; sp=quarantine; fo=1; adkim=r; aspf=r
+
         And
 
         As I have seen the SPF and TXT record for the  fourtechglobalsolutions.com  which is :
