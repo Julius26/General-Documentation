@@ -1,0 +1,20 @@
+Recent Laravel grocery app: 
+
+sudo chown -R newusername:newusername /home/musyi.com/public_html
+sudo chmod -R u+rx /home/musyi.com/public_html
+
+sudo chmod -R u+rx,g+rx,o+rx /home/musyi.com/public_html
+
+ls -l /home/musyi.com/public_html
+
+
+
+
+Reinstall Dependencies:
+rm -rf vendor
+composer install
+
+
+php artisan cache:clear
+
+php artisan config:clear
