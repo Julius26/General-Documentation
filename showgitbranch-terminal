@@ -1,6 +1,9 @@
 # Function to get the current Git branch
 parse_git_branch() {
-    git branch 2>/dev/null | sed -n '/^\*/s/^\* //p'
+    local branch_name=$(git branch 2>/dev/null | sed -n '/^\*/s/^\* //p')
+    if [ -n "$branch_name" ]; then
+        echo -e "\[\033[0;32m\] $branch_name\[\033[0m\]"
+    fi
 }
 
 # Customize the prompt with the current Git branch
