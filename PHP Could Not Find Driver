@@ -1,0 +1,7 @@
+PHP could not find driver : 
+
+Error happens when trying to login to the backend of BlueOcena initiative foundation which .
+
+you have to sort it by installing php8.0-mysql.
+
+sudo apt-get install php7.0-mysql
