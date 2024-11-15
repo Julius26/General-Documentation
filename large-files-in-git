@@ -1,0 +1,3 @@
+CANNOT PUSH TO GITHUB DUE TO LARGE FILES WARNING WHICH WERE EARLIER DELETED
+
+git filter-branch --tree-filter 'rm -rf path/to/your/file' HEAD
