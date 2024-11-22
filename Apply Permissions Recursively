@@ -1,0 +1,2 @@
+sudo find /var/www/html/server/african-script/wordpress/palnetwork/ -type d -exec chmod 755 {} \;
+sudo find /var/www/html/server/african-script/wordpress/palnetwork/ -type f -exec chmod 644 {} \;
