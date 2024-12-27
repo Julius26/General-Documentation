@@ -1,3 +1,5 @@
 CANNOT PUSH TO GITHUB DUE TO LARGE FILES WARNING WHICH WERE EARLIER DELETED
 
 git filter-branch --tree-filter 'rm -rf path/to/your/file' HEAD
+
+git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch path_to_the_file/your_big_file'
